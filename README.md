@@ -48,3 +48,26 @@ Host someinternalhost
 ```
 
 In order to check the solution, you can see [the CI job result](https://travis-ci.com/Otus-DevOps-2019-11/vshender_infra/builds/145504413).
+
+
+## Homework #6: cloud-testapp
+
+- Installation and deployment scripts are created
+- The command to create a VM was added to the readme file
+
+Test application address:
+```
+testapp_IP = 34.76.189.129
+testapp_port = 9292
+```
+
+The command to create a VM:
+```
+$ gcloud compute instances create reddit-app \
+  --boot-disk-size=10GB \
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure
+```
