@@ -53,7 +53,9 @@ In order to check the solution, you can see [the CI job result](https://travis-c
 ## Homework #6: cloud-testapp
 
 - Installation and deployment scripts are created
+- Startup script is created
 - The command to create a VM was added to the readme file
+- The command to create a firewall rule was added to the readme file
 
 Test application address:
 ```
@@ -69,5 +71,18 @@ $ gcloud compute instances create reddit-app \
   --image-project=ubuntu-os-cloud \
   --machine-type=g1-small \
   --tags puma-server \
-  --restart-on-failure
+  --restart-on-failure \
+  --metadata-from-file startup-script=startup_script.sh
+```
+
+The command to create a firewall rule:
+```
+$ gcloud compute firewall-rules create default-puma-server \
+  --network=default \
+  --priority=1000 \
+  --direction=INGRESS \
+  --action=ALLOW \
+  --rules=tcp:9292 \
+  --source-ranges=0.0.0.0/0 \
+  --target-tags=puma-server
 ```
