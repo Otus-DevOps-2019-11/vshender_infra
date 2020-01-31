@@ -48,3 +48,41 @@ Host someinternalhost
 ```
 
 In order to check the solution, you can see [the CI job result](https://travis-ci.com/Otus-DevOps-2019-11/vshender_infra/builds/145504413).
+
+
+## Homework #6: cloud-testapp
+
+- Installation and deployment scripts are created
+- Startup script is created
+- The command to create a VM was added to the readme file
+- The command to create a firewall rule was added to the readme file
+
+Test application address:
+```
+testapp_IP = 34.76.189.129
+testapp_port = 9292
+```
+
+The command to create a VM:
+```
+$ gcloud compute instances create reddit-app \
+  --boot-disk-size=10GB \
+  --image-family ubuntu-1604-lts \
+  --image-project=ubuntu-os-cloud \
+  --machine-type=g1-small \
+  --tags puma-server \
+  --restart-on-failure \
+  --metadata-from-file startup-script=startup_script.sh
+```
+
+The command to create a firewall rule:
+```
+$ gcloud compute firewall-rules create default-puma-server \
+  --network=default \
+  --priority=1000 \
+  --direction=INGRESS \
+  --action=ALLOW \
+  --rules=tcp:9292 \
+  --source-ranges=0.0.0.0/0 \
+  --target-tags=puma-server
+```
