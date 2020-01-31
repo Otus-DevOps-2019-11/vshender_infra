@@ -91,3 +91,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 ## Homework #7: packer-base
 
 - A packer template for testapp base image is created
+- The packer template for testapp base image is parameterized
