@@ -1,0 +1,39 @@
+{
+  "variables": {
+    "project_id": null,
+    "zone": "europe-west1-b",
+    "machine_type": "g1-small"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "{{ user `project_id` }}",
+      "image_name": "reddit-full-{{ timestamp }}",
+      "image_family": "reddit-full",
+      "image_description": "Full image for Redit application",
+      "source_image_family": "reddit-base",
+      "zone": "{{ user `zone` }}",
+      "ssh_username": "appuser",
+      "machine_type": "{{ user `machine_type` }}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "scripts/deploy.sh",
+      "execute_command": "sudo {{.Path}}"
+    },
+    {
+      "type": "file",
+      "source": "files/puma-reddit.service",
+      "destination": "/tmp/"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "sudo mv /tmp/puma-reddit.service /etc/systemd/system/",
+        "sudo systemctl enable puma-reddit.service"
+      ]
+    }
+  ]
+}
