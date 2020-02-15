@@ -32,7 +32,7 @@ resource "google_compute_instance" "app" {
   tags = ["reddit-app"]
 
   metadata = {
-    ssh-keys = "appuser:${file(var.public_key_path)}"
+    ssh-keys = join("\n", [for user in var.users: "${user}:${file(var.public_key_path)}"])
   }
 
   connection {

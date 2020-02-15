@@ -100,3 +100,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - The application instance and the corresponding firewall rule are created using Terraform
 - `zone` and `private_key_path` input variables are added
 - Code is formatted
+- Several user ssh keys are added
