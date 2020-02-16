@@ -103,3 +103,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Several user ssh keys are added.
 - An `appuser_web` ssh key is added using GCP console. It's not visible by Terraform.
 - A `google_compute_project_metadata_item` resource is used in order to add ssh keys common to all instances.
+- An HTTP load balancer and the second app instance are added.

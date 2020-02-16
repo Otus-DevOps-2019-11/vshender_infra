@@ -14,12 +14,12 @@ provider "google" {
 }
 
 resource "google_compute_project_metadata_item" "default" {
-  key = "ssh-keys"
-  value = join("\n", [for user in var.users: "${user}:${file(var.public_key_path)}"])
+  key   = "ssh-keys"
+  value = join("\n", [for user in var.users : "${user}:${file(var.public_key_path)}"])
 }
 
-resource "google_compute_instance" "app" {
-  name         = "reddit-app"
+resource "google_compute_instance" "app1" {
+  name         = "reddit-app-1"
   machine_type = "g1-small"
   zone         = var.zone
 
@@ -39,7 +39,43 @@ resource "google_compute_instance" "app" {
   connection {
     type        = "ssh"
     host        = self.network_interface[0].access_config[0].nat_ip
-    user        = "appuser"
+    user        = var.users[0]
+    agent       = false
+    private_key = file(var.private_key_path)
+  }
+
+  provisioner "file" {
+    source      = "files/puma.service"
+    destination = "/tmp/puma.service"
+  }
+
+  provisioner "remote-exec" {
+    script = "files/deploy.sh"
+  }
+}
+
+resource "google_compute_instance" "app2" {
+  name         = "reddit-app-2"
+  machine_type = "g1-small"
+  zone         = var.zone
+
+  boot_disk {
+    initialize_params {
+      image = var.disk_image
+    }
+  }
+
+  network_interface {
+    network = "default"
+    access_config {}
+  }
+
+  tags = ["reddit-app"]
+
+  connection {
+    type        = "ssh"
+    host        = self.network_interface[0].access_config[0].nat_ip
+    user        = var.users[0]
     agent       = false
     private_key = file(var.private_key_path)
   }
