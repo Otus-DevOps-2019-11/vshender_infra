@@ -5,21 +5,21 @@ vshender Infra repository
 
 ## Homework #4: play-travis
 
-- Slack integration was enabled
-- Travis CI integration was enabled
-- PR template was added
-- Python test was fixed
+- Slack integration was enabled.
+- Travis CI integration was enabled.
+- PR template was added.
+- Python test was fixed.
 
 In order to check the solution, you can see [the CI job result](https://travis-ci.com/Otus-DevOps-2019-11/vshender_infra/builds/145112121).
 
 
 ## Homework #5: cloud-bastion
 
-- GCP account was created
-- Two VMs (`bastion` and `someinternalhost`) were created
-- Connection to `someinternalhost` via `bastion` was configured
-- Connection to `someinternalhost` via VPN was configured (based on Pritunl)
-- SSL certificate was configured using Let's Encrypt
+- GCP account was created.
+- Two VMs (`bastion` and `someinternalhost`) were created.
+- Connection to `someinternalhost` via `bastion` was configured.
+- Connection to `someinternalhost` via VPN was configured (based on Pritunl).
+- SSL certificate was configured using Let's Encrypt.
 
 Host IP addresses:
 ```
@@ -52,10 +52,10 @@ In order to check the solution, you can see [the CI job result](https://travis-c
 
 ## Homework #6: cloud-testapp
 
-- Installation and deployment scripts are created
-- Startup script is created
-- The command to create a VM was added to the readme file
-- The command to create a firewall rule was added to the readme file
+- Installation and deployment scripts are created.
+- Startup script is created.
+- The command to create a VM was added to the readme file.
+- The command to create a firewall rule was added to the readme file.
 
 Test application address:
 ```
@@ -90,6 +90,18 @@ $ gcloud compute firewall-rules create default-puma-server \
 
 ## Homework #7: packer-base
 
-- A packer template for testapp base image is created
-- The packer template for testapp base image is parameterized
-- A packer template for testapp full image is created
+- A packer template for testapp base image is created.
+- The packer template for testapp base image is parameterized.
+- A packer template for testapp full image is created.
+
+
+## Homework #8: terraform-1
+
+- The application instance and the corresponding firewall rule are created using Terraform.
+- `zone` and `private_key_path` input variables are added.
+- The code is formatted using `terraform fmt`.
+- Several user ssh keys are added.
+- An `appuser_web` ssh key is added using GCP console. It's not visible by Terraform.
+- A `google_compute_project_metadata_item` resource is used in order to add ssh keys common to all instances.
+- An HTTP load balancer and the second app instance are added.
+- `count` parameter is used in order to create two app instances.

@@ -1,0 +1,6 @@
+project = "infra-265618"
+disk_image = "reddit-base"
+instance_count = 2
+users = ["appuser", "appuser1", "appuser2"]
+public_key_path = "~/.ssh/appuser.pub"
+private_key_path = "~/.ssh/appuser"
