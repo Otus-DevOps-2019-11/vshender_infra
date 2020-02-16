@@ -99,8 +99,9 @@ $ gcloud compute firewall-rules create default-puma-server \
 
 - The application instance and the corresponding firewall rule are created using Terraform.
 - `zone` and `private_key_path` input variables are added.
-- Code is formatted.
+- The code is formatted using `terraform fmt`.
 - Several user ssh keys are added.
 - An `appuser_web` ssh key is added using GCP console. It's not visible by Terraform.
 - A `google_compute_project_metadata_item` resource is used in order to add ssh keys common to all instances.
 - An HTTP load balancer and the second app instance are added.
+- `count` parameter is used in order to create two app instances.
