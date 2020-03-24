@@ -19,8 +19,7 @@ resource "google_compute_project_metadata_item" "default" {
 }
 
 resource "google_compute_instance" "app" {
-  count        = var.instance_count
-  name         = "reddit-app-${count.index}"
+  name         = "reddit-app"
   machine_type = "g1-small"
   zone         = var.zone
 
@@ -72,4 +71,18 @@ resource "google_compute_firewall" "firewall_puma" {
 
   # The rule applies to instances with the tags listed
   target_tags = ["reddit-app"]
+}
+
+resource "google_compute_firewall" "firewall_ssh" {
+  name        = "default-allow-ssh"
+  description = "Allow SSH from anywhere"
+  network     = "default"
+  priority    = 65534
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
 }

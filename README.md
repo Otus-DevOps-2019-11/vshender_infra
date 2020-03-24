@@ -105,3 +105,8 @@ $ gcloud compute firewall-rules create default-puma-server \
 - A `google_compute_project_metadata_item` resource is used in order to add ssh keys common to all instances.
 - An HTTP load balancer and the second app instance are added.
 - `count` parameter is used in order to create two app instances.
+
+
+## Homework #9: terraform-2
+
+- Firewall rule for SSH access is imported.

@@ -14,12 +14,6 @@ variable zone {
   default     = "europe-west1-b"
 }
 
-variable instance_count {
-  description = "Number of app instances to create"
-  type        = number
-  default     = 1
-}
-
 variable users {
   description = "Users to create on the instances"
   type        = list(string)
