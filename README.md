@@ -110,3 +110,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 ## Homework #9: terraform-2
 
 - Firewall rule for SSH access is imported.
+- External IP address is added for the application.
