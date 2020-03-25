@@ -114,3 +114,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Infrastructure definition is structured by splitting into several files.
 - `app` and `db` modules are created.
 - `vpc` module is created.
+- `prod` and `stage` infrastructures are created.
