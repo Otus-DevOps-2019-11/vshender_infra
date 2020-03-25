@@ -116,3 +116,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - `vpc` module is created.
 - `prod` and `stage` infrastructures are created.
 - `storage-bucket` module is used to create storage bucket.
+- `gcs` backend is used to store a terraform state in storage backed.

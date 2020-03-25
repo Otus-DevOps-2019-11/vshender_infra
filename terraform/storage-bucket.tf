@@ -12,7 +12,7 @@ module "storage-bucket" {
   source  = "SweetOps/storage-bucket/google"
   version = "0.3.1"
 
-  name = "infra-265618-bucket-test"
+  name = "${var.project}-tf-state-bucket"
   location = var.region
 }
 
