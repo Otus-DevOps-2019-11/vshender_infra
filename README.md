@@ -112,3 +112,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Firewall rule for SSH access is imported.
 - External IP address is added for the application.
 - Infrastructure definition is structured by splitting into several files.
+- `app` and `db` modules are created.
