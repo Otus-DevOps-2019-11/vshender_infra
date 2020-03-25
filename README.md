@@ -113,3 +113,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - External IP address is added for the application.
 - Infrastructure definition is structured by splitting into several files.
 - `app` and `db` modules are created.
+- `vpc` module is created.
