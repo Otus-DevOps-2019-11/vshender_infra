@@ -115,3 +115,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - `app` and `db` modules are created.
 - `vpc` module is created.
 - `prod` and `stage` infrastructures are created.
+- `storage-bucket` module is used to create storage bucket.
