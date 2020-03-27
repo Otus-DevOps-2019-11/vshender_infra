@@ -125,3 +125,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Ansible inventory file is added.
 - `ansible.cfg` file is added.
 - Host groups are added to inventory.
+- YAML format is used for inventory.
