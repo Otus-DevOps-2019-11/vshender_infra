@@ -123,3 +123,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 ## Homework #10: ansible-1
 
 - Ansible inventory file is added.
+- `ansible.cfg` file is added.
