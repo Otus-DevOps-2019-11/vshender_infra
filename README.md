@@ -127,3 +127,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Host groups are added to inventory.
 - YAML format is used for inventory.
 - The application code cloning playbook is added.
+- Dynamic inventory is implemented.
