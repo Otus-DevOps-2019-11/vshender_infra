@@ -126,3 +126,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - `ansible.cfg` file is added.
 - Host groups are added to inventory.
 - YAML format is used for inventory.
+- The application code cloning playbook is added.
