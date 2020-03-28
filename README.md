@@ -138,3 +138,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - The playbook is splitted into several plays.
 - The playbook is splitted into several playbooks.
 - The dynamic inventory is used by default.
+- Ansible is used for Packer images provisioning.
