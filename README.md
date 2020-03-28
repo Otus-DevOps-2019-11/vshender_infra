@@ -137,3 +137,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - The application deployment is implemented.
 - The playbook is splitted into several plays.
 - The playbook is splitted into several playbooks.
+- The dynamic inventory is used by default.
