@@ -128,3 +128,7 @@ $ gcloud compute firewall-rules create default-puma-server \
 - YAML format is used for inventory.
 - The application code cloning playbook is added.
 - Dynamic inventory is implemented.
+
+
+## Homework #11: ansible-2
+- Provisioning is removed from Terraform.
