@@ -132,3 +132,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 
 ## Homework #11: ansible-2
 - Provisioning is removed from Terraform.
+- MongoDB configuration is implemented.
