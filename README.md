@@ -136,3 +136,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - The application configuration is implemented.
 - The application deployment is implemented.
 - The playbook is splitted into several plays.
+- The playbook is splitted into several playbooks.
