@@ -134,3 +134,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Provisioning is removed from Terraform.
 - MongoDB configuration is implemented.
 - The application configuration is implemented.
+- The application deployment is implemented.
