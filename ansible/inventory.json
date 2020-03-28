@@ -4,6 +4,9 @@
       "appserver": {
         "ansible_host": "34.77.44.241"
       }
+    },
+    "vars": {
+      "db_host": "10.132.15.223"
     }
   },
   "db": {
