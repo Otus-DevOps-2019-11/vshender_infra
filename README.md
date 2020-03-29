@@ -143,3 +143,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 
 ## Homework #12: ansible-3
 - The roles for DB and application configuration are created.
+- The prod and stage environments are configured.
