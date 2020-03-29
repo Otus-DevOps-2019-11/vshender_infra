@@ -20,12 +20,12 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": "scripts/deploy.sh",
+      "script": "packer/scripts/deploy.sh",
       "execute_command": "sudo {{.Path}}"
     },
     {
       "type": "file",
-      "source": "files/puma-reddit.service",
+      "source": "packer/files/puma-reddit.service",
       "destination": "/tmp/"
     },
     {
