@@ -32,7 +32,7 @@ resource "google_compute_firewall" "firewall_puma" {
   # Allowed access
   allow {
     protocol = "tcp"
-    ports    = ["9292"]
+    ports    = ["80", "9292"]
   }
 
   # Addresses for which access is allowed

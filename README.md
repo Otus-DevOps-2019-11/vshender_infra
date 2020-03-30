@@ -2,6 +2,8 @@
 
 vshender Infra repository
 
+[![Build Status](https://travis-ci.com/Otus-DevOps-2019-11/vshender_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2019-11/vshender_infra)
+
 
 ## Homework #4: play-travis
 
@@ -139,3 +141,11 @@ $ gcloud compute firewall-rules create default-puma-server \
 - The playbook is splitted into several playbooks.
 - The dynamic inventory is used by default.
 - Ansible is used for Packer images provisioning.
+
+
+## Homework #12: ansible-3
+- The roles for DB and application configuration are created.
+- The prod and stage environments are configured.
+- The application is made available on port 80 using `jdauphant.nginx` role.
+- Ansible Vault is used to store secrets.
+- Travis CI is configured.
