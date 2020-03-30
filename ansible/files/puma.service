@@ -6,7 +6,7 @@ After=network.target
 Type=simple
 User=appuser
 WorkingDirectory=/home/appuser/reddit
-Environment=DATABASE_URL=${var.db_ip}
+EnvironmentFile=/home/appuser/db_config
 ExecStart=/bin/bash -lc 'puma'
 Restart=always
 

@@ -1,0 +1,11 @@
+---
+- name: Install Ruby and Bundler
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Ruby and Bundler
+      apt:
+        pkg:
+          - ruby-full
+          - ruby-bundler
+          - build-essential
