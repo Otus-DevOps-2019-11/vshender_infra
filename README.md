@@ -149,3 +149,7 @@ $ gcloud compute firewall-rules create default-puma-server \
 - The application is made available on port 80 using `jdauphant.nginx` role.
 - Ansible Vault is used to store secrets.
 - Travis CI is configured.
+
+
+## Homework #13: ansible-4
+- Vagrantfile for the local infrastructure is created.
