@@ -1,57 +1,46 @@
-terraform {
-  # Terraform version
-  required_version = "~>0.12.0"
-}
-
-provider "google" {
-  # Provider version
-  version = "2.15"
-
-  # Project ID
-  project = var.project
-
-  region = var.region
-}
-
-resource "google_compute_project_metadata_item" "default" {
-  key   = "ssh-keys"
-  value = join("\n", [for user in var.users : "${user}:${file(var.public_key_path)}"])
-}
-
 resource "google_compute_instance" "app" {
-  count        = var.instance_count
-  name         = "reddit-app-${count.index}"
+  name         = "reddit-app"
   machine_type = "g1-small"
   zone         = var.zone
 
+  tags = ["reddit-app"]
+
   boot_disk {
     initialize_params {
-      image = var.disk_image
+      image = var.app_disk_image
     }
   }
 
   network_interface {
     network = "default"
-    access_config {}
+    access_config {
+      nat_ip = google_compute_address.app_ip.address
+    }
   }
 
-  tags = ["reddit-app"]
+  metadata = {
+    ssh-keys = "appuser:${file(var.public_key_path)}"
+  }
+}
+
+resource "null_resource" "install_app" {
+  count = var.install_app ? 1 : 0
 
   connection {
     type        = "ssh"
-    host        = self.network_interface[0].access_config[0].nat_ip
-    user        = var.users[0]
+    host        = google_compute_instance.app.network_interface[0].access_config[0].nat_ip
+    user        = "appuser"
     agent       = false
     private_key = file(var.private_key_path)
   }
 
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "${path.module}/files/puma.service"
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "${path.module}/files/deploy.sh"
   }
 }
 
@@ -72,4 +61,8 @@ resource "google_compute_firewall" "firewall_puma" {
 
   # The rule applies to instances with the tags listed
   target_tags = ["reddit-app"]
+}
+
+resource "google_compute_address" "app_ip" {
+  name = "reddit-app-ip"
 }
