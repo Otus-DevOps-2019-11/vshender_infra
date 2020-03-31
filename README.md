@@ -155,3 +155,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 - Vagrantfile for the local infrastructure is created.
 - Provisioning for the local infrastructure is added.
 - Tests for `db` role are added.
+- `db` and `app` roles for packer provisioners are used.
