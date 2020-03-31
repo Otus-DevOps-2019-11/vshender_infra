@@ -153,3 +153,4 @@ $ gcloud compute firewall-rules create default-puma-server \
 
 ## Homework #13: ansible-4
 - Vagrantfile for the local infrastructure is created.
+- Provisioning for the local infrastructure is added.
