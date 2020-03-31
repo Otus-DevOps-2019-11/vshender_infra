@@ -1,3 +1,4 @@
+deploy_user: appuser
 app_nginx:
   server_name: reddit
-  port: 80
+  listen: 80
